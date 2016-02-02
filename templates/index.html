@@ -21,7 +21,9 @@
   <div>
     {% if SUMMARISE or article.metadata['summary'] or article.metadata['summarize'] %}
       {{ article.summary }}
+      {% if article.summary != article.content %}
       <a class="btn" href="{{ SITEURL }}/{{ article.url }}#{{ article.slug }}">Continue reading</a>
+      {% endif %}
     {% else %}
       {{ article.content }}
     {% endif %}
